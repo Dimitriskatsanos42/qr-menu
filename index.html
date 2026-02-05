@@ -2,249 +2,296 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Σάκης Πιτσαρία - Ψησταριά | Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-    --bg: #fdfcf9;
-    --text: #1a1a1a;
-    --muted: #666;
-    --accent: #8b0000;
-    --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Σάκης Πιτσαρία - Ψησταριά | Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fdfcf9;
+            --text: #1a1a1a;
+            --muted: #666;
+            --accent: #8b0000;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --starters-color: #fff0f5;
+            --salads-color: #f0fff0;
+            --daily-color: #fff5ee;
+            --pizza-color: #fffaf0;
+            --pasta-color: #f0f8ff;
+            --drinks-color: #f5fffa;
+        }
 
-    --starters-color: #fff0f5;
-    --salads-color: #f0fff0;
-    --daily-color: #fff5ee;
-    --pizza-color: #fffaf0;
-    --pasta-color: #f0f8ff;
-    --drinks-color: #f5fffa;
-}
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
 
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-}
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-}
+        header {
+            text-align: center;
+            padding: 30px 0 20px 0;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 20px;
+        }
 
-header {
-    text-align: center;
-    padding: 30px 0;
-    border-bottom: 2px solid var(--accent);
-    margin-bottom: 20px;
-}
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 3px;
+        }
 
-header h1 {
-    font-family: 'Playfair Display', serif;
-    color: var(--accent);
-    font-size: 2.5rem;
-    margin: 0;
-    letter-spacing: 3px;
-}
+        .subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--muted);
+            margin-top: 5px;
+        }
 
-.subtitle {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: var(--muted);
-    margin-top: 5px;
-}
+        .info-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+            text-align: center;
+        }
 
-.info {
-    text-align: center;
-    background: var(--white);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    margin-bottom: 30px;
-}
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
 
-.info a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
+        .action-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
 
-.category-button {
-    width: 100%;
-    background: #fff;
-    color: var(--accent);
-    border: 1px solid #eee;
-    padding: 18px 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-}
+        .action-box {
+            background: white;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            text-decoration: none;
+            color: var(--text);
+            transition: transform 0.2s;
+        }
 
-.category-button:active {
-    transform: scale(0.98);
-}
+        .action-box:active { transform: scale(0.95); }
 
-.items {
-    display: none;
-    padding: 5px 10px 20px 10px;
-    animation: fadeIn 0.4s ease;
-}
+        .action-box i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: block;
+            color: var(--accent);
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .action-box span {
+            font-size: 0.75rem;
+            display: block;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
 
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px dashed #ddd;
-}
+        .action-box strong {
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
 
-.item span:first-child {
-    max-width: 75%;
-    font-weight: 500;
-}
+        .category-button {
+            width: 100%;
+            background: #fff;
+            color: var(--accent);
+            border: 1px solid #eee;
+            padding: 18px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
 
-.price {
-    font-weight: 600;
-    color: var(--text);
-    white-space: nowrap;
-}
+        .category-button:active { transform: scale(0.98); }
 
-footer {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--muted);
-    padding-bottom: 30px;
-}
+        .items { display: none; padding: 5px 10px 20px 10px; animation: fadeIn 0.4s ease; }
 
-/* Χρώματα για κάθε κατηγορία όταν είναι ενεργή */
-.category-button.active[data-category="starters"] { background: var(--starters-color); color: #202020; }
-.category-button.active[data-category="salads"] { background: var(--salads-color); color: #202020; }
-.category-button.active[data-category="daily"] { background: var(--daily-color); color: #202020; }
-.category-button.active[data-category="pizza"] { background: var(--pizza-color); color: #202020; }
-.category-button.active[data-category="pasta"] { background: var(--pasta-color); color: #202020; }
-.category-button.active[data-category="drinks"] { background: var(--drinks-color); color: #202020; }
-</style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .item span { font-family: 'Inter', sans-serif; }
+
+        .item span strong { font-weight: 600; }
+
+        .item span div { font-family: 'Inter', sans-serif; font-size:0.85rem; color:#666; margin-top:2px; line-height:1.4; }
+
+        .price { font-weight: 600; color: var(--text); }
+
+        footer { margin-top: 50px; text-align: center; font-size: 0.75rem; color: var(--muted); padding-bottom: 40px; }
+
+        .category-button.active[data-category="starters"] { background: var(--starters-color); color: #000; }
+        .category-button.active[data-category="salads"] { background: var(--salads-color); color: #000; }
+        .category-button.active[data-category="daily"] { background: var(--daily-color); color: #000; }
+        .category-button.active[data-category="pizza"] { background: var(--pizza-color); color: #000; }
+        .category-button.active[data-category="pasta"] { background: var(--pasta-color); color: #000; }
+        .category-button.active[data-category="drinks"] { background: var(--drinks-color); color: #000; }
+    </style>
 </head>
 <body>
-
 <div class="container">
-<header>
-    <h1>ΣΑΚΗΣ</h1>
-    <div class="subtitle">ΠΙΤΣΑΡΙΑ – ΨΗΣΤΑΡΙΑ</div>
-</header>
+    <header>
+        <h1>ΣΑΚΗΣ</h1>
+        <div class="subtitle">ΠΙΤΣΑΡΙΑ – ΨΗΣΤΑΡΙΑ</div>
+    </header>
 
-<div class="info">
-    <a href="tel:2682032350">📞 26820 32350</a><br>
-    <small style="color: var(--muted); display: block; margin-top: 8px;">
-        Δευτ.–Σάβ.: 18:00–00:00 | Κυρ.: 12:00–16:00 & 18:00–00:00
-    </small>
-</div>
+    <div class="info-card">
+        <a href="tel:2682032350" class="contact-link"><i class="fa-solid fa-phone"></i> 26820 32350</a>
+        <small style="color: var(--muted); display: block; margin-top: 8px;">
+            Δευτ.–Σάβ.: 18:00–00:00 | Κυρ.: 12:00–16:00 & 18:00–00:00
+        </small>
+    </div>
 
-<!-- ΟΡΕΚΤΙΚΑ -->
-<button class="category-button" onclick="toggleItems(this, 'starters')" data-category="starters">Ορεκτικά <span>+</span></button>
-<div class="items" id="starters">
-  <div class="item"><span>Πατάτες</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Τζατζίκι</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Πιπεριές</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Τυροκαυτερή</span><span class="price">3.50€</span></div>
-  <div class="item"><span>Φέτα</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Φέτα ψητή</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Σαγανάκι</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Σαγανάκι Special Σάκης</span><span class="price">4.50€</span></div>
-  <div class="item"><span>Φλογέρες</span><span class="price">6.00€</span></div>
-  <div class="item"><span>Τυροκροκέτες</span><span class="price">4.00€</span></div>
-</div>
+    <div class="action-grid">
+        <div class="action-box">
+            <i class="fa-solid fa-wifi"></i>
+            <span>WiFi Password</span>
+            <strong>2682032350</strong>
+        </div>
+        <a href="https://www.google.com/search?q=ΣΑΚΗΣ+ΠΡΕΒΕΖΑ#lrd=0x0:0x0,3" target="_blank" class="action-box">
+            <i class="fa-solid fa-star"></i>
+            <span>Αξιολόγηση</span>
+            <strong>Πείτε μας τη γνώμη σας</strong>
+        </a>
+    </div>
 
-<!-- ΣΑΛΑΤΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'salads')" data-category="salads">Σαλάτες <span>+</span></button>
-<div class="items" id="salads">
-  <div class="item"><span>Αγγουροντομάτα</span><span class="price">3.50€</span></div>
-  <div class="item"><span>Χωριάτικη</span><span class="price">5.00€</span></div>
-  <div class="item"><span>Μαρούλι</span><span class="price">3.00€</span></div>
-</div>
+    <!-- ΟΡΕΚΤΙΚΑ -->
+    <button class="category-button" onclick="toggleItems(this, 'starters')" data-category="starters">Ορεκτικά <span>+</span></button>
+    <div class="items" id="starters">
+        <div class="item"><span>Πατάτες</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Τζατζίκι</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Πιπεριές</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Τυροκαυτερή</span><span class="price">3.50€</span></div>
+        <div class="item"><span>Φέτα</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Φέτα ψητή</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Σαγανάκι</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Σαγανάκι Special Σάκης</span><span class="price">4.50€</span></div>
+        <div class="item"><span>Φλογέρες</span><span class="price">6.00€</span></div>
+        <div class="item"><span>Τυροκροκέτες</span><span class="price">4.00€</span></div>
+    </div>
 
-<!-- ΤΗΣ ΩΡΑΣ -->
-<button class="category-button" onclick="toggleItems(this, 'daily')" data-category="daily">Της Ώρας <span>+</span></button>
-<div class="items" id="daily">
-  <div class="item"><span>Σουβλάκι Χοιρινό</span><span class="price">2.00€</span></div>
-  <div class="item"><span>Σουβλάκι Κοτόπουλο</span><span class="price">2.00€</span></div>
-  <div class="item"><span>Μπιφτέκι Απλό</span><span class="price">9.00€</span></div>
-  <div class="item"><span>Μπιφτέκι Γεμιστό</span><span class="price">9.00€</span></div>
-  <div class="item"><span>Μπιφτέκι Κοτόπουλο</span><span class="price">8.00€</span></div>
-  <div class="item"><span>Λουκάνικο Μερίδα</span><span class="price">8.00€</span></div>
-  <div class="item"><span>Πανσέτα</span><span class="price">8.00€</span></div>
-  <div class="item"><span>Συκώτι</span><span class="price">7.50€</span></div>
-  <div class="item"><span>Φιλέτο Κοτόπουλο</span><span class="price">8.00€</span></div>
-  <div class="item"><span>Μπριζόλα Χοιρινή</span><span class="price">8.00€</span></div>
-  <div class="item"><span>Μπριζόλα Μοσχαρίσια</span><span class="price">13.00€</span></div>
-  <div class="item"><span>Παϊδάκια Μερίδα</span><span class="price">10.00€</span></div>
-  <div class="item"><span>Παϊδάκια Κιλό</span><span class="price">30.00€</span></div>
-</div>
+    <!-- ΣΑΛΑΤΕΣ -->
+    <button class="category-button" onclick="toggleItems(this, 'salads')" data-category="salads">Σαλάτες <span>+</span></button>
+    <div class="items" id="salads">
+        <div class="item"><span>Αγγουροντομάτα</span><span class="price">3.50€</span></div>
+        <div class="item"><span>Χωριάτικη</span><span class="price">5.00€</span></div>
+        <div class="item"><span>Μαρούλι</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Λάχανο – Καρότο</span><span class="price">3.00€</span></div>
+        <div class="item">
+            <span>
+                <strong>Ανάμεικτη (λάχανο - μαρούλι)</strong>
+                <div>Επιλογές: καρότο · λεμόνι · ξύδι · βαλσάμικο</div>
+            </span>
+            <span class="price">3.50€</span>
+        </div>
+    </div>
 
-<!-- ΠΙΤΣΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'pizza')" data-category="pizza">Πίτσες <span>+</span></button>
-<div class="items" id="pizza">
-  <div class="item"><span>Μαργαρίτα</span><span class="price">7.00€</span></div>
-  <div class="item"><span>Χωριάτικη</span><span class="price">11.00€</span></div>
-  <div class="item"><span>Σπέσιαλ</span><span class="price">10.00€</span></div>
-  <div class="item"><span>Λαχανικών</span><span class="price">9.00€</span></div>
-  <div class="item"><span>Γαλοπούλα</span><span class="price">10.00€</span></div>
-</div>
+    <!-- ΤΗΣ ΩΡΑΣ -->
+    <button class="category-button" onclick="toggleItems(this, 'daily')" data-category="daily">Της Ώρας <span>+</span></button>
+    <div class="items" id="daily">
+        <div class="item"><span>Σουβλάκι Χοιρινό</span><span class="price">2.00€</span></div>
+        <div class="item"><span>Σουβλάκι Κοτόπουλο</span><span class="price">2.00€</span></div>
+        <div class="item"><span>Μπιφτέκι Απλό</span><span class="price">9.00€</span></div>
+        <div class="item"><span>Μπιφτέκι Γεμιστό</span><span class="price">9.00€</span></div>
+        <div class="item"><span>Μπιφτέκι Κοτόπουλο</span><span class="price">8.00€</span></div>
+        <div class="item"><span>Λουκάνικο Μερίδα</span><span class="price">8.00€</span></div>
+        <div class="item"><span>Πανσέτα</span><span class="price">8.00€</span></div>
+        <div class="item"><span>Συκώτι</span><span class="price">7.50€</span></div>
+        <div class="item"><span>Φιλέτο Κοτόπουλο</span><span class="price">8.00€</span></div>
+        <div class="item"><span>Μπριζόλα Χοιρινή</span><span class="price">8.00€</span></div>
+        <div class="item"><span>Μοσχαρίσια Μπριζόλα</span><span class="price">13.00€</span></div>
+        <div class="item"><span>Παϊδάκια Μερίδα</span><span class="price">10.00€</span></div>
+        <div class="item"><span>Παϊδάκια Κιλό</span><span class="price">30.00€</span></div>
+    </div>
 
-<!-- ΜΑΚΑΡΟΝΑΔΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'pasta')" data-category="pasta">Μακαρονάδες <span>+</span></button>
-<div class="items" id="pasta">
-  <div class="item"><span>Σπέσιαλ</span><span class="price">5.50€</span></div>
-  <div class="item"><span>Ναπολιτέν</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Μπολονέζ</span><span class="price">5.50€</span></div>
-</div>
+    <!-- ΠΙΤΣΕΣ -->
+    <button class="category-button" onclick="toggleItems(this, 'pizza')" data-category="pizza">Πίτσες <span>+</span></button>
+    <div class="items" id="pizza">
+        <div class="item"><span>Μαργαρίτα</span><span class="price">7.00€</span></div>
+        <div class="item"><span>Χωριάτικη</span><span class="price">11.00€</span></div>
+        <div class="item"><span>Σπέσιαλ</span><span class="price">10.00€</span></div>
+        <div class="item"><span>Λαχανικών</span><span class="price">9.00€</span></div>
+        <div class="item"><span>Γαλοπούλα</span><span class="price">10.00€</span></div>
+    </div>
 
-<!-- ΠΟΤΑ -->
-<button class="category-button" onclick="toggleItems(this, 'drinks')" data-category="drinks">Ποτά & Αναψυκτικά <span>+</span></button>
-<div class="items" id="drinks">
-  <div class="item"><span>Αναψυκτικά / Λεμονάδα / Sprite / Coca Cola / Σόδα / Πορτοκαλάδα</span><span class="price">1.80€</span></div>
-  <div class="item"><span>Παγωμένο Τσάι</span><span class="price">1.80€</span></div>
-  <div class="item"><span>Χυμός Ανάμεικτος</span><span class="price">2.00€</span></div>
-  <div class="item"><span>Νερό 0,5lt</span><span class="price">0.50€</span></div>
-  <div class="item"><span>Νερό 1,5lt</span><span class="price">1.00€</span></div>
-  <div class="item"><span>Ούζο</span><span class="price">2.00€</span></div>
-  <div class="item"><span>Τσίπουρο</span><span class="price">2.50€</span></div>
-  <div class="item"><span>Μπύρα Heineken</span><span class="price">3.50€</span></div>
-  <div class="item"><span>Μπύρα Amstel</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Μπύρα Kaiser</span><span class="price">3.50€</span></div>
-  <div class="item"><span>Μπύρα Alfa</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Μπύρα Fix</span><span class="price">3.00€</span></div>
-  <div class="item"><span>Κρασί Λευκό 500ml</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Κρασί Κόκκινο 500ml</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Κρασί Ροζέ 500ml</span><span class="price">4.00€</span></div>
-  <div class="item"><span>Ποτήρι Κρασί</span><span class="price">1.50€</span></div>
-</div>
+    <!-- ΜΑΚΑΡΟΝΑΔΕΣ -->
+    <button class="category-button" onclick="toggleItems(this, 'pasta')" data-category="pasta">Μακαρονάδες <span>+</span></button>
+    <div class="items" id="pasta">
+        <div class="item"><span>Σπέσιαλ</span><span class="price">5.50€</span></div>
+        <div class="item"><span>Ναπολιτέν</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Μπολονέζ</span><span class="price">5.50€</span></div>
+    </div>
 
-<footer>
-Ο καταναλωτής δεν έχει υποχρέωση να πληρώσει αν δεν λάβει το νόμιμο παραστατικό.
-</footer>
+    <!-- ΠΟΤΑ -->
+    <button class="category-button" onclick="toggleItems(this, 'drinks')" data-category="drinks">Ποτά & Αναψυκτικά <span>+</span></button>
+    <div class="items" id="drinks">
+        <div class="item"><span>Αναψυκτικά / Λεμονάδα / Sprite / Coca Cola / Σόδα / Πορτοκαλάδα</span><span class="price">1.80€</span></div>
+        <div class="item"><span>Παγωμένο Τσάι</span><span class="price">1.80€</span></div>
+        <div class="item"><span>Χυμός Ανάμεικτος</span><span class="price">2.00€</span></div>
+        <div class="item"><span>Νερό 0,5lt</span><span class="price">0.50€</span></div>
+        <div class="item"><span>Νερό 1,5lt</span><span class="price">1.00€</span></div>
+        <div class="item"><span>Ούζο</span><span class="price">2.00€</span></div>
+        <div class="item"><span>Τσίπουρο</span><span class="price">2.50€</span></div>
+        <div class="item"><span>Μπύρα Heineken</span><span class="price">3.50€</span></div>
+        <div class="item"><span>Μπύρα Amstel</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Μπύρα Kaiser</span><span class="price">3.50€</span></div>
+        <div class="item"><span>Μπύρα Alfa</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Μπύρα Fix</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Μπύρα Amstel Radler</span><span class="price">3.50€</span></div>
+        <div class="item"><span>Μπύρα Άλφα Χωρίς Αλκοόλ</span><span class="price">3.00€</span></div>
+        <div class="item"><span>Ρετσίνα Μαλαματίνα</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Κρασί Λευκό 500ml</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Κρασί Κόκκινο Ημίγλυκο 500ml</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Κρασί Ροζέ 500ml</span><span class="price">4.00€</span></div>
+        <div class="item"><span>Ποτήρι Κρασί</span><span class="price">1.50€</span></div>
+    </div>
 
+    <footer>
+        Ο καταναλωτής δεν έχει υποχρέωση να πληρώσει αν δεν λάβει το νόμιμο παραστατικό (απόδειξη-τιμολόγιο).
+    </footer>
 </div>
 
 <script>
@@ -253,10 +300,10 @@ function toggleItems(btn, id){
     const isOpen = el.style.display === "block";
     el.style.display = isOpen ? "none" : "block";
     btn.classList.toggle('active', !isOpen);
-    btn.querySelector("span").textContent = isOpen ? "+" : "–";
+
+    const span = btn.querySelector("span");
+    span.textContent = isOpen ? "+" : "-";
 }
 </script>
-
 </body>
 </html>
-
