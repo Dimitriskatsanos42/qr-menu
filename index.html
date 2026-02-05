@@ -1,161 +1,117 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Σάκης Πιτσαρία - Ψησταριά | Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<title>Σάκης Πιτσαρία - Ψησταριά</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root {
-    --bg: #fdfcf9;
-    --text: #1a1a1a;
-    --muted: #666;
-    --accent: #8b0000;
-    --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+:root{
+  --bg:#f4f1ec;
+  --text:#2b2b2b;
+  --muted:#7a7a7a;
+  --accent:#7b1e24;
+  --button-bg:#7b1e24;
+  --button-text:#ffffff;
 }
 
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
+.container{
+  max-width:520px;
+  margin:auto;
+  padding:20px;
 }
 
-header {
-    text-align: center;
-    padding: 30px 0;
-    border-bottom: 2px solid var(--accent);
-    margin-bottom: 20px;
+header{
+  text-align:center;
+  margin-bottom:25px;
 }
 
-header h1 {
-    font-family: 'Playfair Display', serif;
-    color: var(--accent);
-    font-size: 2.5rem;
-    margin: 0;
-    letter-spacing: 3px;
+header h1{
+  font-family:'Playfair Display',serif;
+  color:var(--accent);
+  letter-spacing:2px;
+  margin-bottom:5px;
 }
 
-.subtitle {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: var(--muted);
-    margin-top: 5px;
+.subtitle{
+  font-size:0.9rem;
+  color:var(--muted);
 }
 
-.info {
-    text-align: center;
-    background: var(--white);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    margin-bottom: 30px;
+.info{
+  text-align:center;
+  font-size:0.9rem;
+  margin-bottom:25px;
 }
 
-.info a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
+.category-button{
+  width:100%;
+  background:var(--button-bg);
+  color:var(--button-text);
+  border:none;
+  padding:16px;
+  font-size:1.3rem;
+  font-family:'Playfair Display',serif;
+  text-align:left;
+  margin-bottom:8px;
+  border-radius:8px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.category-button {
-    width: 100%;
-    background: #fff;
-    color: var(--accent);
-    border: 1px solid #eee;
-    padding: 18px 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: left;
-    margin-bottom: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
+.items{
+  display:none;
+  margin-bottom:18px;
+  border-left:3px solid var(--accent);
+  padding-left:12px;
 }
 
-.category-button:active {
-    transform: scale(0.98);
+.item{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
 }
 
-.items {
-    display: none;
-    padding: 5px 10px 20px 10px;
-    animation: fadeIn 0.4s ease;
+.price{
+  color:var(--muted);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+footer{
+  margin-top:30px;
+  text-align:center;
+  font-size:0.75rem;
+  color:var(--muted);
 }
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px dashed #ddd;
-}
-
-.item span:first-child {
-    max-width: 75%;
-    font-weight: 500;
-}
-
-.price {
-    font-weight: 600;
-    color: var(--text);
-    white-space: nowrap;
-}
-
-footer {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--muted);
-    padding-bottom: 30px;
-}
-
-/* Χρώματα για κάθε κατηγορία όταν είναι ενεργή */
-.category-button.active[data-category="starters"] { background: #fff0f5; color: #202020; }
-.category-button.active[data-category="salads"] { background: #f0fff0; color: #202020; }
-.category-button.active[data-category="daily"] { background: #fff5ee; color: #202020; }
-.category-button.active[data-category="pizza"] { background: #fffaf0; color: #202020; }
-.category-button.active[data-category="pasta"] { background: #f0f8ff; color: #202020; }
-.category-button.active[data-category="drinks"] { background: #f5fffa; color: #202020; }
 </style>
 </head>
-<body>
 
+<body>
 <div class="container">
+
 <header>
-    <h1>ΣΑΚΗΣ</h1>
-    <div class="subtitle">ΠΙΤΣΑΡΙΑ – ΨΗΣΤΑΡΙΑ</div>
+  <h1>ΣΑΚΗΣ</h1>
+  <div class="subtitle">ΠΙΤΣΑΡΙΑ – ΨΗΣΤΑΡΙΑ</div>
 </header>
 
 <div class="info">
-    <a href="tel:2682032350">📞 26820 32350</a><br>
-    <small style="color: var(--muted); display: block; margin-top: 8px;">
-        Δευτ.–Σάβ.: 18:00–00:00 | Κυρ.: 12:00–16:00 & 18:00–00:00
-    </small>
+📞 <strong>26820 32350</strong><br>
+🕒 Δευτ.–Σάβ.: 18:00–00:00<br>
+🕒 Κυριακή: 12:00–16:00 & 18:00–00:00
 </div>
 
 <!-- ΟΡΕΚΤΙΚΑ -->
-<button class="category-button" onclick="toggleItems(this, 'starters')" data-category="starters">Ορεκτικά <span>+</span></button>
+<button class="category-button" onclick="toggleItems('starters')">Ορεκτικά <span>+</span></button>
 <div class="items" id="starters">
   <div class="item"><span>Πατάτες</span><span class="price">3.00€</span></div>
   <div class="item"><span>Τζατζίκι</span><span class="price">3.00€</span></div>
@@ -170,7 +126,7 @@ footer {
 </div>
 
 <!-- ΣΑΛΑΤΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'salads')" data-category="salads">Σαλάτες <span>+</span></button>
+<button class="category-button" onclick="toggleItems('salads')">Σαλάτες <span>+</span></button>
 <div class="items" id="salads">
   <div class="item"><span>Αγγουροντομάτα</span><span class="price">3.50€</span></div>
   <div class="item"><span>Χωριάτικη</span><span class="price">5.00€</span></div>
@@ -178,7 +134,7 @@ footer {
 </div>
 
 <!-- ΤΗΣ ΩΡΑΣ -->
-<button class="category-button" onclick="toggleItems(this, 'daily')" data-category="daily">Της Ώρας <span>+</span></button>
+<button class="category-button" onclick="toggleItems('daily')">Της Ώρας <span>+</span></button>
 <div class="items" id="daily">
   <div class="item"><span>Σουβλάκι Χοιρινό</span><span class="price">2.00€</span></div>
   <div class="item"><span>Σουβλάκι Κοτόπουλο</span><span class="price">2.00€</span></div>
@@ -193,10 +149,12 @@ footer {
   <div class="item"><span>Μοσχαρίσια Μπριζόλα</span><span class="price">13.00€</span></div>
   <div class="item"><span>Παϊδάκια Μερίδα</span><span class="price">10.00€</span></div>
   <div class="item"><span>Παϊδάκια Κιλό</span><span class="price">30.00€</span></div>
+  <div class="item"><span>Ποικιλία Μικρή</span><span class="price">16.00€</span></div>
+  <div class="item"><span>Ποικιλία Μεγάλη</span><span class="price">22.00€</span></div>
 </div>
 
 <!-- ΠΙΤΣΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'pizza')" data-category="pizza">Πίτσες <span>+</span></button>
+<button class="category-button" onclick="toggleItems('pizza')">Πίτσες <span>+</span></button>
 <div class="items" id="pizza">
   <div class="item"><span>Μαργαρίτα</span><span class="price">7.00€</span></div>
   <div class="item"><span>Χωριάτικη</span><span class="price">11.00€</span></div>
@@ -206,7 +164,7 @@ footer {
 </div>
 
 <!-- ΜΑΚΑΡΟΝΑΔΕΣ -->
-<button class="category-button" onclick="toggleItems(this, 'pasta')" data-category="pasta">Μακαρονάδες <span>+</span></button>
+<button class="category-button" onclick="toggleItems('pasta')">Μακαρονάδες <span>+</span></button>
 <div class="items" id="pasta">
   <div class="item"><span>Σπέσιαλ</span><span class="price">5.50€</span></div>
   <div class="item"><span>Ναπολιτέν</span><span class="price">4.00€</span></div>
@@ -214,7 +172,7 @@ footer {
 </div>
 
 <!-- ΠΟΤΑ -->
-<button class="category-button" onclick="toggleItems(this, 'pasta')" data-category="pasta">Ποτά & Αναψυκτικά <span>+</span></button>
+<button class="category-button" onclick="toggleItems('drinks')">Ποτά & Αναψυκτικά <span>+</span></button>
 <div class="items" id="drinks">
   <div class="item"><span>Αναψυκτικά / Λεμονάδα / Sprite / Coca Cola / Σόδα / Πορτοκαλάδα</span><span class="price">1.80€</span></div>
   <div class="item"><span>Παγωμένο Τσάι</span><span class="price">1.80€</span></div>
@@ -241,19 +199,20 @@ footer {
 </div>
 
 <script>
-function toggleItems(btn, id){
-    const el = document.getElementById(id);
-    if(el.style.display === "block"){
-        el.style.display = "none";
-        btn.classList.remove('active');
-        btn.querySelector("span").textContent = "+";
-    } else {
-        el.style.display = "block";
-        btn.classList.add('active');
-        btn.querySelector("span").textContent = "–";
-    }
+function toggleItems(id){
+  const el = document.getElementById(id);
+  const btn = el.previousElementSibling;
+  if(el.style.display === "block"){
+    el.style.display = "none";
+    btn.querySelector("span").textContent = "+";
+  } else {
+    el.style.display = "block";
+    btn.querySelector("span").textContent = "–";
+  }
 }
 </script>
 
 </body>
 </html>
+
+
